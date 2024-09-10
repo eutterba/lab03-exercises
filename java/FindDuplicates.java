@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FindDuplicates {
 
@@ -21,6 +23,22 @@ public class FindDuplicates {
 			current = count + 1;
 		}
 
+		return duplist;
+
+	}
+
+	public static List<Integer> findModeHashMap(List<Integer> l) {
+		Map<Integer, Integer> s = new HashMap<Integer, Integer>();
+		List<Integer> duplist = new List<Integer>();
+		int lsize = l.size();
+		int count = 0;
+		while (count < lsize) {
+			if (s.containsKey(l.get(count))) {
+				duplist.add(l.get(count));
+			}
+			s.put(l.get(count), 1);
+			count++;
+		}
 		return duplist;
 
 	}
